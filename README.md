@@ -80,11 +80,19 @@ CONTRIBUTIONS (Standing on the shoulders of giants)
 
 This Software has been developed on ideas and software from the following developers/contributors:
 
-Pavel Novak, University of West Bohemia (Developer)
-Dimitri Tsoulis, IAPG, TU-Munich (Developer)
-Nico Sneeuw, IAPG, TU-Munich (Developer): https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/ 
-Matthias Weigelt, IAPG, TU-Munich (Developer)
-Wouter van der Wal, Delft University of Technology (Contributor)
+- Pavel Novak, University of West Bohemia (Developer)
+- Dimitri Tsoulis, IAPG, TU-Munich (Developer)
+- Nico Sneeuw, IAPG, TU-Munich (Developer): https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/ 
+- Matthias Weigelt, IAPG, TU-Munich (Developer)
+- Wouter van der Wal, Delft University of Technology (Contributor)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+REFERENCES
+
+This code is based on the mathematical representation of:
+
+Root, B.C., Novák, P., Dirkx, D., Kaban, M., van der Wal, W., and Vermeersen, L.L.A. (2016), On a spectral method for forward gravity field modelling, Journal of Geodynamics, 97, 22-30.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
