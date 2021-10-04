@@ -3,9 +3,9 @@ Global Spherical Harmonic package (MATLAB)
 
 README: Gravity Software TUDelft
 
-NOTE: This software is not tested thoroughly for commercial use. If used in research please give credits to the developer and his University.
+NOTE: This software is not tested thoroughly for commercial use. If used in research please give credits to the developer and his University. For any other License questions, please consult the LICENSE.md file.
 
-written by Bart Root, 06-nov-2014, Delft University of Technology:
+Initial development by Bart Root, 06-nov-2014, Delft University of Technology:
 
 The following software package contains MATLAB scripts to do Global Spherical  Harmonic Analyses and Synthesis for Crust1.0. The setup is build as follows:
 
