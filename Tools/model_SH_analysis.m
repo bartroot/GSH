@@ -13,8 +13,7 @@ function [V] = model_SH_analysis(Model)
 %   - import_layer.m
 %       - gmt2matrix.m
 %   - layer_SH_analysis.m
-%       - gsha_crust.m
-%           - neumann.m (but not needed when wls is used)
+%       - GSHA.m
 %       - cs2sc.m
 %       - sc2vecml.m
 %       - geocradius.m (But this is an inert MATLAB function: aero toolbox)
