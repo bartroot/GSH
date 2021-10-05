@@ -82,7 +82,7 @@ This Software has been developed on ideas and software from the following develo
 
 - Pavel Novak, University of West Bohemia (Developer)
 - Dimitri Tsoulis, IAPG, TU-Munich (Developer)
-- Nico Sneeuw, IAPG, TU-Munich (Developer): https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/ 
+- Nico Sneeuw, IAPG, TU-Munich and University of Stuttgart (Developer): https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/ 
 - Matthias Weigelt, IAPG, TU-Munich (Developer)
 - Wouter van der Wal, Delft University of Technology (Contributor)
 
