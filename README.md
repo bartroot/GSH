@@ -1,41 +1,38 @@
-# GSH
-Global Spherical Harmonic package (MATLAB)
+# Global Spherical Harmonic package (GSH) 
 
-README: Gravity Software TUDelft
+GSH is a MATLAB package to do **Global Spherical Harmonic Analyses** (GSHA) and **Synthesis** (GSHS) for Crust1.0.
 
-NOTE: This software is not tested thoroughly for commercial use. If used in research please give credits to the developer and his University. For any other License questions, please consult the LICENSE.md file.
 
-Initial development by Bart Root, 06-nov-2014, Delft University of Technology:
+## Requirements
 
-The following software package contains MATLAB scripts to do Global Spherical  Harmonic Analyses and Synthesis for Crust1.0. The setup is build as follows:
+The code runs from Matlab 2016a, but highest version is recommended. 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-There are two executables
+SHBundle (https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/) from is not needed to be downloaded, however the code does use some files from this bundle:
 
-run.m
+- cs2sc.m
+- sc2cs.m
+- gsha.m (has been altered for speed and clarity of the code by Bart Root)
 
-and 
+This SHbundle is licenced under NU General Public Licence: (https://www.gnu.org/licenses/gpl-3.0.en.html). We highly recommend to download this bundle as well, because it has many usefull Matlab functions that can be used together with the GSH package.
 
-plotResults_full.m
+## Structure
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this repository you can find:
 
-run.m is divided in to parts:
+- `run.m` executable to run the **GSHA** module (performed by `model_SH_analysis.m` found in `Tools/`) and **GSHS** module (performed by `model_SH_synthesis.m` found in `Tools/`)  
+- `inputModel.m` used as input by the GSHA module   
+- `plotResults_full.m` executable that can be used to visualize the results  
+- `Data/` directory containing GMT files with the density model specifications   
+- `Tools/` directory containing the scripts used to perform the GSHA and GSHS  
+- `Results/` directory containing the outputs of `run.m`  
 
-1. GSHA -> performed by model_SH_analysis.m
-2. GSHS -> performed by model_SH_synthesis.m
+`run.m` can run the GSHA and the GSHS modules separately. THE GSHA module uses a `importfile = inputModel.m`. Here the density model can be defined by using .gmt files. GMT files must have a certain format, which can be inspected in the given tutorial files (see .gmt files in `Data/`). The unit in .gmt files are SI/1000 (km or g/cm<sup>3</sup>).
 
-Both modules can be used separate. THE GSHA module uses a importfile = inputModel.m. Here the density model can be defined by using .gmt files. GMT files must have a certain format, which can be inspected in the given tutorial files (dir: Data). The unit in .gmt files are SI/1000. So, km or g/cm3.
+The GSHS module will return a structure `data` containing the results. These results can be visualized with `plotResults_full.m`
 
-The GSHS module will return a structure ‘data’. In this structure are all the different results situated. These results can be view with plotResults_full.m
+The `run.m` file can be modified if different area or resolution is wanted.
 
-The run.m file can be modified if different area or resolution is wanted.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Structure:
-
-Run.m uses: 
+`run.m` uses: 
 
 	- inputModel.m
 	- model_SH_synthesis.m
@@ -51,51 +48,52 @@ Run.m uses:
 				-cs2sc.m
 				-Legendre_functions.m
 			- sc2vecml.m
-			- geocradius.m (MATLAB func. toolbox aero)
-					and only when geoid is WGS84
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-EXTRA TOOLS
+### Extra Tools
 
-Another useful script is the visual_gmtfile.m located in the Tools directory.
-This function will read in a gmt file and plot the file. It allows you to check 
-easily the file and if an error is present in the file it will not run, but then the 
-GSH code will also not work. 
+Other scripts that are found in `Tools/`:
 
-degreeVariance.m generates the degree variances from the V vector, containing the spherical harmonic coefficients from the analysis.
+- `visual_gmtfile.m`: reads a .gmt file and plots the file. It allows you to check the file and, if an error is present in the file, it will not run (then the GSH will also not work).   
+- `degreeVariance.m`: generates the degree variances from the V vector, containing the spherical harmonic coefficients from the analysis.  
+- `Europe_centered.m`: transforms a map matrix and swaps from -180:180 to 0:360 longitude view, as different conventions are available.  
+- `matrix2gmt.m` and `gmt2matrix.m`: convert matrixes to .gmt structure and vice versa respectively.
 
-Europe_centered.m transforms a map matrix and swaps from -180:180 to 0:360 longitude view, as different conventions are available.
 
-gmt2matrix.m and matrix2gmt.m convert matrixes to .gmt structure and visa versa.
+### Keep in Mind
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Common error is a 'single' value `NaN` in the .gmt file, that arises due to interpolation error. This needs to be checked, because the GSH code will also stop working, when this is the case. Check all input files and variables for NaN values. This could happen if interpolation of the input maps has gone wrong. The isnan.m function of Matlab is very useful for this.
 
-Common error is a 'single' value NaN in the .gmt file, due to interpolation error.
-This needs to be checked, because the GSH code will also stop working, when this is the case.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-CONTRIBUTIONS (Standing on the shoulders of giants)
+## Authors (Standing on the shoulders of giants!)
 
 This Software has been developed on ideas and software from the following developers/contributors:
 
-- Pavel Novak, University of West Bohemia (Developer)
-- Dimitri Tsoulis, IAPG, TU-Munich (Developer)
-- Nico Sneeuw, IAPG, TU-Munich and University of Stuttgart (Developer): https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/ 
-- Matthias Weigelt, IAPG, TU-Munich (Developer)
-- Wouter van der Wal, Delft University of Technology (Contributor)
+- **Bart Root** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-7742-1434](https://orcid.org/0000-0001-7742-1434), Technische Universiteit Delft (Developer)
+- **Pavel Novak**, University of West Bohemia (Contributor)  
+- **Dimitri Tsoulis**, Institut für Astronomische und Physikalische Geodäsie (IAPG), Technische Universität München  (Contributor)  
+- **Nico Sneeuw** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0003-1796-0131](https://orcid.org/0000-0003-1796-0131), Institut für Astronomische und Physikalische Geodäsie (IAPG), Technische Universität München and University of Stuttgart (Contributor)  
+- **Matthias Weigelt** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-9669-127X](https://orcid.org/0000-0001-9669-127X), Institut für Astronomische und Physikalische Geodäsie (IAPG), Technische Universität München  (Contributor)
+- **Wouter van der Wal** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-8030-9080](https://orcid.org/0000-0001-8030-9080), Technische Universiteit Delft (Contributor)
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-REFERENCES
+## License
 
-This code is based on the mathematical representation of:
+The contents of this repository are licensed under a **GNU General Public License v3.0** (see [LICENSE](https://github.com/bartroot/GSH/blob/main/LICENSE.md) file).
 
-Root, B.C., Novák, P., Dirkx, D., Kaban, M., van der Wal, W., and Vermeersen, L.L.A. (2016), On a spectral method for forward gravity field modelling, Journal of Geodynamics, 97, 22-30.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+## References
 
-If you have any comments, feedback, or recommendations, please let me know: b.c.root@tudelft.nl
+If you would like to reuse the code, please cite the following:
+
+Root, B.C., Novák, P., Dirkx, D., Kaban, M., van der Wal, W., and Vermeersen, L.L.A. (2016), On a spectral method for forward gravity field modelling, Journal of Geodynamics, 97, 22-30 [DOI: 10.1016/j.jog.2016.02.008](https://doi.org/10.1016/j.jog.2016.02.008)
+
+
+## Would you like to contribute?
+
+If you have any comments, feedback, or recommendations, feel free to **reach out** by sending an email to b.c.root@tudelft.nl
+
+If you would like to contribute directly, you are welcome to **fork** this repository.
 
 Thank you and enjoy!
+
