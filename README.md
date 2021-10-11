@@ -7,7 +7,7 @@ GSH is a MATLAB package to do **Global Spherical Harmonic Analyses** (GSHA) and 
 
 The code runs from Matlab 2016a, but highest version is recommended. 
 
-SHBundle (https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/) from is not needed to be downloaded, however the code does use some files from this bundle:
+SHBundle (https://www.gis.uni-stuttgart.de/en/research/downloads/shbundle/) is not needed to be downloaded, however the GSH code uses some functions from this bundle:
 
 - cs2sc.m
 - sc2cs.m
