@@ -64,7 +64,6 @@ Other scripts that are found in `Tools/`:
 
 Common error is a 'single' value `NaN` in the .gmt file, that arises due to interpolation error. This needs to be checked, because the GSH code will also stop working, when this is the case. Check all input files and variables for NaN values. This could happen if interpolation of the input maps has gone wrong. The isnan.m function of Matlab is very useful for this.
 
-
 ## Authors (Standing on the shoulders of giants!)
 
 This Software has been developed on ideas and software from the following developers/contributors:
@@ -81,6 +80,12 @@ This Software has been developed on ideas and software from the following develo
 
 The contents of this repository are licensed under a **GNU General Public License v3.0** (see [LICENSE](https://github.com/bartroot/GSH/blob/main/LICENSE.md) file).
 
+Copyright notice:
+
+Technische Universiteit Delft hereby disclaims all copyright interest in the program “GSH package”. GSH is a MATLAB package to do Global Spherical Harmonic Analyses (GSHA) and Synthesis (GSHS) for Crust1.0. written by the Author(s). 
+Henri Werij, Faculty of Aerospace Engineering, Technische Universiteit Delft. 
+
+© 2021, B.C. Root
 
 ## References
 
