@@ -89,7 +89,9 @@ Henri Werij, Faculty of Aerospace Engineering, Technische Universiteit Delft.
 
 ## References
 
-If you would like to reuse the code, please cite the following:
+If you would like to reuse the code, please cite the following DOI: 10.4121/16764238
+
+The mathematical description can be found in the following publication:
 
 Root, B.C., Novák, P., Dirkx, D., Kaban, M., van der Wal, W., and Vermeersen, L.L.A. (2016), On a spectral method for forward gravity field modelling, Journal of Geodynamics, 97, 22-30 [DOI: 10.1016/j.jog.2016.02.008](https://doi.org/10.1016/j.jog.2016.02.008)
 
