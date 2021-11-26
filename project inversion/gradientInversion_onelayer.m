@@ -26,7 +26,6 @@ function [density_inverted] = gradientInversion(data,region,component)
 height = data.height;
 Re = data.Model.Re;
 G = 6.6732e-11;
-%SHbounds = data.SHbounds; % degrees of data
 
 %% Modelling region
 
