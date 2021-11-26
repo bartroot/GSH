@@ -1,4 +1,4 @@
-function [density_inverted] = gradientInversion(data,region,component,tikonov)
+function [density_inverted] = gradientInversion(data,region,component)
 %
 % This function will invert for density using the Green's functions as
 % relation to the gravity data
@@ -13,16 +13,14 @@ function [density_inverted] = gradientInversion(data,region,component,tikonov)
 %                   region.res:     resolution of inverted grid (deg)
 %                   region.bound:   boundary around inverted region not used for solution (deg)
 %                   components:     numerals for components 1:6 gradients, 7:9 vector, 10 geoid
-%                   tikonov:        Tikonov regularisation parameter.
 %
 % Output variable:  
 %                   density_inverted: Map of density specified by region.
 %
-% Functions used: GreenFunctionv2.m
+% Functions used: GreenFunction.m
 %---------------------------------------------------------------------------
 
 %component = 1;
-%tikonov = 0; %[0 1e1 1e0 1e-1 1e-2 1e-3 1e-4 1e-5 1e-6 1e-7 1e-8 1e-9 1e-10 1e-11 1e-12 1e-13 1e-14 1e-15 1e-16 1e-17 1e-18 1e-19 1e-20 1e-21 1e-22 1e-23 1e-24 1e-25 1e-26 -1e-27 1e-28 1e-29 1e-30 1e-31 1e-32 1e-33 1e-34 1e-35 1e-36 1e-37 1e-38 1e-39 1e-40 1e-41];
 
 % Initializing parameters
 height = data.height;
@@ -68,8 +66,8 @@ bxo = bx;
 cxo = cx;
 dxo = dx;
 
-xxo1 = (axo-bxo)/res + 1;
-xxo2 = (dxo-cxo)/res + 1;
+% xxo1 = (axo-bxo)/res + 1;
+% xxo2 = (dxo-cxo)/res + 1;
 
 %% input model
 
@@ -299,7 +297,8 @@ end
 %% Estimating the density profile.
 disp('Start the least-squares...')
 disp('...This can take a while!')
-deltaR = (Hfull+tikonov*eye(size(Hfull)))\Hyfull;
+%deltaR = (Hfull+tikonov*eye(size(Hfull)))\Hyfull;
+deltaR = Hfull\Hyfull;
 
 %P_dom = inv(Hfull+lambda*eye(size(Hfull)));
 %% Results post-processing
