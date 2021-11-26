@@ -20,8 +20,6 @@ function [density_inverted] = gradientInversion(data,region,component)
 % Functions used: GreenFunction.m
 %---------------------------------------------------------------------------
 
-%component = 1;
-
 % Initializing parameters
 height = data.height;
 Re = data.Model.Re;
