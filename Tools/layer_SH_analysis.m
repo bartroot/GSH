@@ -169,7 +169,7 @@ for Hi = 1:max_bin
     
     
     % Do the analysis
-    cs = GSHA(m,method,grid,nmax); sc = cs2sc(cs);
+    cs = GSHA(m,nmax); sc = cs2sc(cs);
     %figure;plot(1:size(sc,1),log10(sqrt(sum(sc.^2,2))./(1:size(sc,1))'));
     [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
     
@@ -207,7 +207,7 @@ for Hi = 1:max_bin
 %                 end
 %             end
             
-            cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+            cs = GSHA(m,nmax); sc = cs2sc(cs);
             [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
             
             %%%%%%%%%%%%%%%%%% 
@@ -233,7 +233,7 @@ for Hi = 1:max_bin
 %                 end
 %             end
             
-            cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+            cs = GSHA(m,nmax); sc = cs2sc(cs);
             [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
             
             %%%%%%%%%%%%%%%%%%
