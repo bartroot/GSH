@@ -137,7 +137,7 @@ for Hi = 1:3
         % part -a tmean (n+2) in the gradient formula
         m = -tmean.*(falpha).*(fdens).*(fupper-flower);
 
-        cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+        cs = GSHA(m,nmax); sc = cs2sc(cs);
         [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
 
         %%%%%%%%%%%%%%%%%% 
@@ -149,7 +149,7 @@ for Hi = 1:3
         % part a+R in the gradient formula
         m = Re.*(falpha).*(fdens).*(fupper.*fupper-flower.*flower);
 
-        cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+        cs = GSHA(m,nmax); sc = cs2sc(cs);
         [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
 
         %%%%%%%%%%%%%%%%%% 
@@ -158,7 +158,7 @@ for Hi = 1:3
         % part -a tmean (n+2) in the gradient formula
         m = -tmean.*(falpha).*(fdens).*(fupper.*fupper-flower.*flower);
 
-        cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+        cs = GSHA(m,nmax); sc = cs2sc(cs);
         [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
 
         %%%%%%%%%%%%%%%%%% 
@@ -173,7 +173,7 @@ for Hi = 1:3
         % part 2(n+2)aR in the gradient formula
         m = 2.*Re.*(falpha).*(fdens).*(fupper.*fupper.*fupper-flower.*flower.*flower);
 
-        cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+        cs = GSHA(m,nmax); sc = cs2sc(cs);
         [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
 
         %%%%%%%%%%%%%%%%%%
@@ -182,7 +182,7 @@ for Hi = 1:3
         % part -a tmean (n+2)(n+1) in the gradient formula
         m = -tmean.*(falpha).*(fdens).*(fupper.*fupper-flower.*flower);
 
-        cs = GSHA(m,'wls',grid,nmax); sc = cs2sc(cs);
+        cs = GSHA(m,nmax); sc = cs2sc(cs);
         [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
 
         %%%%%%%%%%%%%%%%%% 
