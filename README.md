@@ -58,6 +58,9 @@ Other scripts that are found in `Tools/`:
 - `degreeVariance.m`: generates the degree variances from the V vector, containing the spherical harmonic coefficients from the analysis.  
 - `Europe_centered.m`: transforms a map matrix and swaps from -180:180 to 0:360 longitude view, as different conventions are available.  
 - `matrix2gmt.m` and `gmt2matrix.m`: convert matrixes to .gmt structure and vice versa respectively.
+- `topo2crust.m`: creates a flexure type crust-mantle interface from topography map (Airy, infinite plate, thin shell)
+- `segment_2_layer_model.m`: makes segments of a 2 layer model to counter numerical instabilities.
+- `GSHS.m`: Counterfunction of GSHA, synthesis coefficients to map on a unit sphere
 
 
 ### Keep in Mind
@@ -74,6 +77,7 @@ This Software has been developed on ideas and software from the following develo
 - **Nico Sneeuw** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0003-1796-0131](https://orcid.org/0000-0003-1796-0131), Institut für Astronomische und Physikalische Geodäsie (IAPG), Technische Universität München and University of Stuttgart (Contributor)  
 - **Matthias Weigelt** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-9669-127X](https://orcid.org/0000-0001-9669-127X), Institut für Astronomische und Physikalische Geodäsie (IAPG), Technische Universität München  (Contributor)
 - **Wouter van der Wal** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-8030-9080](https://orcid.org/0000-0001-8030-9080), Technische Universiteit Delft (Contributor)
+- **Weilun Qin** ![ORCID logo](https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png) [0000-0001-7703-3132](https://orcid.org/0000-0001-7703-3132), Technische Universiteit Delft (Contributor)
 
 
 ## License
