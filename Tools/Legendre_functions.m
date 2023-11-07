@@ -46,8 +46,8 @@ if rem(m,1) ~=0;       error('Order m must be integer.'); end
 [trow,tcol] = size(th);
 lmax = max(l);
 if lmax < m; error('Largest degree still smaller than order m.'); end
-x    = cos(deg2rad(th));
-y    = sin(deg2rad(th));
+x    = cos(deg2rad(th(:)));
+y    = sin(deg2rad(th(:)));
 lvec = l(:)';					% l can be used now as running index.
 
 % Recursive computation of the temporary matrix ptmp, containing the Legendre

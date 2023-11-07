@@ -29,12 +29,12 @@ lon = Lon(1,:);
 lats = Lat(:,1);
 lon = lon - 180;
 
-load coast;
+%load coast;
 
 figure;
 hold on
 imagesc(lon,lats,(B));c=colorbar; 
-plot(long,lat,'k');
+%plot(long,lat,'k');
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off

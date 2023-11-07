@@ -31,9 +31,8 @@ function [V] = model_SH_analysis(Model)
 % 
 
 %G = 6.67384e-11;      % Universal gravity constant
-%G = 6.6732e-11;
+G = 6.6732e-11;
 %G = 6.67428e-11;
-G = 6.673e-11;
 Re3 = (Model.Re).^3;
 
 rhoE = 3.*Model.GM./(4*pi*G*Re3);
