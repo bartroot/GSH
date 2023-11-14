@@ -61,6 +61,8 @@ Other scripts that are found in `Tools/`:
 - `topo2crust.m`: creates a flexure type crust-mantle interface from topography map (Airy, infinite plate, thin shell)
 - `segment_2_layer_model.m`: makes segments of a 2 layer model to counter numerical instabilities.
 - `GSHS.m`: Counterfunction of GSHA, synthesis coefficients to map on a unit sphere
+- `sc2zdenek.m`: conversion of Stokes coefficients from GSH format to SFEC format
+- `zdenek2V.m`: conversion of Stokes coefficients from SFEC format to GSH format
 
 
 ### Keep in Mind
