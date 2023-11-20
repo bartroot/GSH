@@ -6,7 +6,7 @@ function [CM_interface,lon_CM,lat_CM] = topo2crust(h,N,CM_type,Model)
 
 %% define parameters and constants for Mars
 
-Te = Model.Te;      			% Effective Elastic thickness of lithosphere[km]
+Te = Model.Te;      			% Effective Elastic thickness of lithosphere[m]
 T = Model.D_c;        			% Crustal thickness with zero topography [m] 
 E = Model.E;       			% Young's modulus 
 v = Model.v;       			% Poisson's ratio    
