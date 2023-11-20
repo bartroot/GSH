@@ -68,7 +68,7 @@ sc_CM = vecml2sc(Clm_CM,Slm_CM,N);
 % defined by lam and phi (each vectors). The radius must be scalar. The output
 % is the disturbing potential and any derivative up to the fourth.
 
-res = (N+1)/180;
+res = 180/(N+1);
 lam = [res/2:res:360-res/2];         % lam   [n x 1]   longitude [deg]
 th =  [res/2:res:180-res/2];         % th    [m x 1]   co-latitude [deg]      【90-lat】
 
