@@ -11,13 +11,10 @@ load('Results/data_Crust10_crust_3_179_26-Mar-2019 13:14:45.mat')
 lon = data.grd.lon(1,:);
 lats = data.grd.lat(:,1);
 
-load coast;
-
 figure;
 subplot(2,2,1)
 imagesc(lon,lats,((data.pot)));c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -30,7 +27,6 @@ set(gca,'YDir','normal')
 subplot(2,2,2)
 imagesc(lon,lats,((data.vec.Z)).*1e5);c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -43,7 +39,6 @@ set(gca,'YDir','normal')
 subplot(2,2,3)
 imagesc(lon,lats,((data.vec.X)).*1e5);c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -56,7 +51,6 @@ set(gca,'YDir','normal')
 subplot(2,2,4)
 imagesc(lon,lats,((data.vec.Y)).*1e5);c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -72,7 +66,6 @@ figure;
 subplot(3,3,1)
 imagesc(lon,lats,((data.ten.Tzz).*1e9));c=colorbar;
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -83,35 +76,32 @@ ylabel(c,'Eotvos')
 set(gca,'YDir','normal')
 
 subplot(3,3,2)
-imagesc(lon,lats,((data.ten.Tzx).*1e9));c=colorbar;
+imagesc(lon,lats,((data.ten.Txz).*1e9));c=colorbar;
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
 xlabel('Longitude [^o]')
 ylabel('Latitude [^o]')
-title(['Tzx-component of gravity gradient tensor'])
+title(['Txz-component of gravity gradient tensor'])
 ylabel(c,'Eotvos') 
 set(gca,'YDir','normal')
 
 subplot(3,3,3)
-imagesc(lon,lats,((data.ten.Tzy).*1e9));c=colorbar; 
+imagesc(lon,lats,((data.ten.Tyz).*1e9));c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
 xlabel('Longitude [^o]')
 ylabel('Latitude [^o]')
-title(['Tzy-component of gravity gradient tensor'])
+title(['Tyz-component of gravity gradient tensor'])
 ylabel(c,'Eotvos') 
 set(gca,'YDir','normal')
 
 subplot(3,3,5)
 imagesc(lon,lats,((data.ten.Txx).*1e9));c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -124,7 +114,6 @@ set(gca,'YDir','normal')
 subplot(3,3,6)
 imagesc(lon,lats,((data.ten.Txy).*1e9));c=colorbar;
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
@@ -137,7 +126,6 @@ set(gca,'YDir','normal')
 subplot(3,3,9)
 imagesc(lon,lats,((data.ten.Tyy).*1e9));c=colorbar; 
 hold on
-plot(long,lat,'k','LineWidth',1.5);
 xlim([min(lon) max(lon)])
 ylim([min(lats) max(lats)])
 hold off
