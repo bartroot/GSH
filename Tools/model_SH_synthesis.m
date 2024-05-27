@@ -24,6 +24,10 @@ Lat = repmat(lat',1,length(lon));
 
 r = Model.Re + height;
 
+% make the Stokes coefficients independend of sorting
+
+V = sortrows(V,2);
+
 %% get potential field and others
 
 if isscalar(r)
