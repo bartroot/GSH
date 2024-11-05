@@ -22,7 +22,7 @@ lat = latLim(1):latLim(3):latLim(2);
 Lon = repmat(lon,length(lat),1);
 Lat = repmat(lat',1,length(lon));
 
-r = Model.Re + height;
+r = Model.Re + double(height);
 
 % make the Stokes coefficients independend of sorting
 

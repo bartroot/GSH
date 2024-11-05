@@ -1,6 +1,6 @@
 # Global Spherical Harmonic package (GSH) 
 
-GSH is a MATLAB package to do **Global Spherical Harmonic Analyses** (GSHA) and **Synthesis** (GSHS) for Crust1.0.
+GSH is a MATLAB package to do **Global Spherical Harmonic Analyses** (GSHA) and **Synthesis** (GSHS) for Crust1.0. This version supports running the scripts with Octave.
 
 
 ## Requirements

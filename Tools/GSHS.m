@@ -53,9 +53,8 @@ elseif ~any(size(th)==1)
 end
 
 % prepare coordinates
-th   = sort(th(:));
-lam  = lam(:).*pi/180;
-
+th   = double(sort(th(:)));
+lam  = double(lam(:).*pi/180);
 % use the desired degree
 if nargin < 5 || isempty(ldesired), ldesired = lmax; end
 if ldesired < lmax
@@ -68,7 +67,7 @@ field     = cs2sc(field);
 [row,~] = size(field);
 
 % prepare cosine and sine --> cos(m*lam) and sin(m*lam)
-m       = 0:lmax;
+m       = double(0:lmax);
 l       = m';
 mlam    = (lam*m)'; 
 cosmlam = cos(mlam);
@@ -81,7 +80,7 @@ field   = field .* (transf(:) * ones(1,2*lmax+1));
 %----------------------------------------------------------------------------
 % CALCULATION
 %----------------------------------------------------------------------------
-for m = 0:row-1
+for m = double(0:row-1)
     if m==0
         Cnm = field(:,row+m);           % get column with order 0
         Snm = zeros(row,1);             % there are no Sn0 coefficients

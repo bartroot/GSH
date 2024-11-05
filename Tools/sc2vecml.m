@@ -23,8 +23,8 @@ mmvec = [];
 Clm = zeros(   (lmax+2)*(lmax+1)/2  ,1  );
 Slm = zeros(   (lmax+2)*(lmax+1)/2  ,1  );
 
-for mm = 0:lmax
-    for ll = mm:lmax
+for mm = double(0:lmax)
+    for ll = double(mm:lmax)
         l1 = l1+1;
         if l1<= length(Clm)
             Clm(l1) = sc(ll+1,lmax+1+mm);
