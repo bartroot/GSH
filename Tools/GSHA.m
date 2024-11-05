@@ -16,12 +16,10 @@ function cs = GSHA(f,lmax)
 % Grid definition
 %--------------------------------------------------------------------------
 [rows,cols] = size(f);
-
 n     = rows;
-dt    = 180 / n;
-theta = (dt/2:dt:180)';
-lam   = (dt/2:dt:360);           	% dt = dlam
-   	
+dt    = double(180 / n);
+theta = double((dt/2:dt:180))';
+lam   = double((dt/2:dt:360));           	% dt = dlam
 %--------------------------------------------------------------------------
 % further diagnostics
 %--------------------------------------------------------------------------
@@ -43,7 +41,8 @@ slm = zeros(L+1,L+1);
 %--------------------------------------------------------------------------
 % 1st step analysis: Am(theta) & Bm(theta)
 %--------------------------------------------------------------------------
-m   = 0:L;
+m   = double(0:L);
+
 c   = cos(lam'*m*pi/180);
 s   = sin(lam'*m*pi/180);
 
@@ -68,8 +67,8 @@ b = f * s;
 si = sin(theta*pi/180);
 si = 2*si/sum(si);
 
-% loop over the order of the Spherical Harmonics
-for m = 0:L
+%% loop over the order of the Spherical Harmonics
+for m = double(0:L)
   % construct the legendre polynomials
   p  = Legendre_functions(m:L,m,theta);
   % Select particular colum of the signal
@@ -79,8 +78,8 @@ for m = 0:L
   pts = p' * sparse(d,d,si);
   
   % Estimate the coefficients
-  clm(m+1:L+1,m+1) = (pts * p) \ pts * ai;
-  slm(m+1:L+1,m+1) = (pts * p) \ pts * bi;  
+  clm(m+1:L+1,m+1) = (pts * p) \ (pts * ai);
+  slm(m+1:L+1,m+1) = (pts * p) \ (pts * bi);  
 end
 
 %--------------------------------------------------------------------------

@@ -100,7 +100,7 @@ elseif strcmp(geoid,'benchmark_Mikhail')
         disp('Benchmark Mikhail reference')       
         
         f  = 1/298.257223563;
-        aRe = 6371000;
+        aRe = double(6371000);
         
         res = 180/size(fupper,1);        
         latV = ((-90 +res/2:res:90-res/2).*-1)';
@@ -169,8 +169,9 @@ for Hi = 1:max_bin
     
     
     % Do the analysis
-    cs = GSHA(m,nmax); sc = cs2sc(cs);
+    cs = GSHA(double(m),nmax); sc = cs2sc(cs);
     %figure;plot(1:size(sc,1),log10(sqrt(sum(sc.^2,2))./(1:size(sc,1))'));
+
     [Clm,Slm,llvec,mmvec] = sc2vecml(sc,nmax);
     
     %%%%%%%%%%%%%%%%%%

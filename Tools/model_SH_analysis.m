@@ -33,20 +33,22 @@ function [V] = model_SH_analysis(Model)
 %G = 6.67384e-11;      % Universal gravity constant
 %G = 6.6732e-11;
 %G = 6.67428e-11;
-G = 6.673e-11;
+
+Model.Re = double(Model.Re);
+Model.GM = double(Model.GM);
+G = double(6.673e-11);
 Re3 = (Model.Re).^3;
 
-rhoE = 3.*Model.GM./(4*pi*G*Re3);
+rhoE = 3*Model.GM/(4*pi*G*Re3);
 
 % Default three binomial series terms (This can be modified after modifying layer_SH_analysis.m)
 
-max_bin = 3;
+max_bin = double(3);
 
 % starting the loop over the different layers
 for nlayer = 1:Model.number_of_layers
     
     layer_name = ['l' num2str(nlayer)];
-    disp(['The layer number ' layer_name ' is starting'])
     
     % Costruct the coefficients for that particular layer
     [U,L,R] = import_layer(Model,nlayer);
@@ -86,5 +88,4 @@ for nlayer = 1:Model.number_of_layers
     V(:,3:4) = V(:,3:4) + Vlayer(:,3:4);
     
 end
-    
 

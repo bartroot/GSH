@@ -33,7 +33,6 @@ function [p, dp, ddp] = Legendre_functions(l,m,th)
 %   (23/11/2020) by Bart Root
 %-----------------------------------------------------------------------------
 
-
 % Input check for validatity of the program
 if min(size(l)) ~= 1;  error('Degree l must be vector (or scalar)'); end
 if any(rem(l,1) ~= 0); error('Vector l contains non-integers.'); end
@@ -85,7 +84,7 @@ ddptmp(:,1) = -m*fac*(y.^m) + m*(m-1)*fac*(y.^(m-2).*x.^2);
 %--------------------------------------------------------------------
 % l-recursion: P
 %--------------------------------------------------------------------
-for l = m+1:lmax
+for l = double(m+1:lmax)
    col   = l - m + 1;			% points to the next column of ptmp
    root1 = sqrt( (2*l+1)*(2*l-1)/((l-m)*(l+m)) ) ;                      % beta_n,m (65) 
    root2 = sqrt( (2*l+1)*(l+m-1)*(l-m-1) / ( (2*l-3)*(l-m)*(l+m) ) );   % beta_n,m (65) * gamma_n,m (66)
@@ -138,3 +137,5 @@ if max(size(th))==1 && min(size(lvec))==1  && (lcol == 1)
     dp = dp';
     ddp = ddp';
 end
+
+return
