@@ -32,7 +32,7 @@ if new_model == 1
   Model.l1.dens  = 2650;
   
   % Second layer
-  Model.l2.bound = -50000;     % meters with respect to reference sphere
+  Model.l2.bound = -50000+Model.l1.bound;     % meters with respect to reference sphere
   Model.l2.dens  = 3400;	   % Density in kg/m3
   
   % Bottom bound
@@ -68,10 +68,10 @@ toc
 %% Global Spherical Harmonic Synthesis
 
 tic;
-[data] = model_SH_synthesis(lonLim,latLim,height,SHbounds,V,Model);
+[data] = model_SH_synthesis(lonLim,latLim,height,SHbounds,V_Model,Model);
 toc
 
 %% Save data
 
 DATE = datestr(now);
-save(['Results/data_' Model.name '_' num2str(SHbounds(1)) '_' num2str(SHbounds(2)) '_' DATE '.mat'],'data','V','Model')
+save(['Results/data_' Model.name '_' num2str(SHbounds(1)) '_' num2str(SHbounds(2)) '_' DATE '.mat'],'data','V_Model','Model')
