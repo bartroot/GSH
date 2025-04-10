@@ -62,7 +62,7 @@ SHbounds =  [0 179]; % Truncation settings: lower limit, upper limit SH-coeffici
 %% Global Spherical Harmonic Analysis 
 
 tic;
-[V_Model] = segment_2layer_model(Model.l1.bound,Model.l2.bound,Model.l3.bound,Model.l1.dens,Model.l2.dens,25000,Model)
+[V_Model] = segment_2layer_model(Model.l1.bound,Model.l2.bound,Model.l3.bound,Model.l1.dens,Model.l2.dens,25000,Model);
 toc
 
 %% Global Spherical Harmonic Synthesis
@@ -73,5 +73,4 @@ toc
 
 %% Save data
 
-DATE = datestr(now);
-save(['Results/data_' Model.name '_' num2str(SHbounds(1)) '_' num2str(SHbounds(2)) '_' DATE '.mat'],'data','V_Model','Model')
+save(['Results/data_' Model.name '_' num2str(SHbounds(1)) '_' num2str(SHbounds(2)) '.mat'],'data','V_Model','Model')
