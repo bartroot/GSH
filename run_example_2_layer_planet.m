@@ -8,39 +8,46 @@ addpath([HOME '/Data']);
 addpath([HOME '/Tools']);
 
 % Model Construction
-% Load previous saved model
 
-%model_name = 'two_layer_planet';
-%load(model_name);
+new_model = 1;
 
-% Construct new model
+if new_model == 1
 
-Model = struct();
+  % Construct new model
+  
+  Model = struct();
+  
+  Model.number_of_layers = 2;
+  Model.name = 'two_layer_planet';
+  
+  % Additional variables
+  Model.GM = 3.9860004415E14;
+  Model.Re = 6378136.30;
+  Model.geoid = 'none';
+  Model.nmax = 179;     
+  Model.correct_depth = 0;
+  
+  % Top layer
+  Model.l1.bound = gmt2matrix(load([HOME '/Data/crust1.bd1.gmt'])).*1e3;  % meters with respect to reference sphere
+  Model.l1.dens  = 2650;
+  
+  % Second layer
+  Model.l2.bound = -50000;     % meters with respect to reference sphere
+  Model.l2.dens  = 3400;	   % Density in kg/m3
+  
+  % Bottom bound
+  Model.l3.bound = -100000;    % meters with respect to reference sphere
+  
+  % Save model in .mat file for use of the new software
+  
+  save([HOME '/Data/' Model.name '.mat'],'Model')
 
-Model.number_of_layers = 2;
-Model.name = 'two_layer_planet';
+else
+  % Load previous saved model
 
-% Additional variables
-Model.GM = 3.9860004415E14;
-Model.Re = 6378136.30;
-Model.geoid = 'none';
-Model.nmax = 179;     
-Model.correct_depth = 0;
-
-% Top layer
-Model.l1.bound = gmt2matrix(load([HOME '/Data/crust1.bd1.gmt'])).*1e3;  % meters with respect to reference sphere
-Model.l1.dens  = 2650;
-
-% Second layer
-Model.l2.bound = -50000;     % meters with respect to reference sphere
-Model.l2.dens  = 3400;	   % Density in kg/m3
-
-% Bottom bound
-Model.l3.bound = -100000;    % meters with respect to reference sphere
-
-% Save model in .mat file for use of the new software
-
-save([HOME '/Data/' Model.name '.mat'],'Model')
+  model_name = 'two_layer_planet';
+  load([HOME '/Data/' Model.name '.mat']);
+end
 
 %%%%%%%%%%%%%%%%%%% Computation area %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%% Part that can be modified %%%%%%%%%%%%%%%%%%%%%%%
