@@ -77,7 +77,7 @@ end
 % Check if nmax value is correct
 if nmax+1>size(fupper,1)
     error('Size input matrix is incorrect: Latitude length is to small for nmax')
-elseif nmax+1*2>size(fupper,2)
+elseif (nmax+1)*2>size(fupper,2)
     error('Size input matrix is incorrect: Longitude length is to small for nmax')
 end
 
@@ -350,3 +350,4 @@ end
 %     plot(log10(fac4(1:180).*fac(1:180).*rhoRatio./Re./Re./Re./Re),'k')
 %     plot(log10(fac5(1:180).*fac(1:180).*rhoRatio./Re./Re./Re./Re./Re),'m')
 %     hold off
+
